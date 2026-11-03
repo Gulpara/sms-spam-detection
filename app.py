@@ -30,12 +30,12 @@ if st.button("Predict"):
         )
 
         with torch.no_grad():
-    outputs = model(**inputs)
-    probabilities = torch.softmax(outputs.logits, dim=1)
-    prediction = torch.argmax(probabilities, dim=1).item()
-    confidence = probabilities[0][prediction].item() * 100
-
-if prediction == 1:
-    st.error(f"🚨 Spam ({confidence:.2f}% confidence)")
-else:
-    st.success(f"✅ Ham ({confidence:.2f}% confidence)")
+            outputs = model(**inputs)
+            probabilities = torch.softmax(outputs.logits, dim=1)
+            prediction = torch.argmax(probabilities, dim=1).item()
+            confidence = probabilities[0][prediction].item() * 100
+            
+            if prediction == 1:
+                st.error(f"🚨 Spam ({confidence:.2f}% confidence)")
+                         else:
+                st.success(f"✅ Ham ({confidence:.2f}% confidence)")
