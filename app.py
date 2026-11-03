@@ -37,5 +37,5 @@ if st.button("Predict"):
             
             if prediction == 1:
                 st.error(f"🚨 Spam ({confidence:.2f}% confidence)")
-                         else:
+            else:
                 st.success(f"✅ Ham ({confidence:.2f}% confidence)")
